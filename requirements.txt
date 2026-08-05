@@ -1,0 +1,10 @@
+pandas
+numpy
+geopandas
+rasterio
+matplotlib
+scipy
+networkx
+osmnx
+pyogrio
+jupyter

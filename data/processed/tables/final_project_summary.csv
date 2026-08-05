@@ -1,0 +1,15 @@
+Metric,Value,Unit
+Total population,11613844,people
+Population connected to analysed walking network,11030270,people
+Connected population share,94.98,%
+Population within 5 minutes,378349,people
+Population within 10 minutes,1345625,people
+Population within 15 minutes,2557672,people
+Population within 30 minutes,6206185,people
+30-minute accessibility rate,53.44,%
+Underserved population,5407659,people
+Underserved population share,46.56,%
+Best-performing LGA,Agege,99.70% within 30 min
+Lowest-performing LGA,Badagry,0.00% within 30 min
+Largest absolute underserved population,Alimosho,"967,347 people"
+Top-5 share of LGA-assigned underserved population,58.3,%
