@@ -1,27 +1,59 @@
 # Methodology
 
-## 1. Boundary preparation
+## 1. Scope and study area
 
-Lagos State and its 20 LGAs were projected to WGS 84 / UTM Zone 31N (EPSG:32631). Geometry validity and area were checked before spatial analysis.
+The analysis covers Lagos State and its 20 Local Government Areas. All spatial data are standardised to WGS 84 / UTM Zone 31N (EPSG:32631).
 
-## 2. Transit-data preparation
+The project measures **walking accessibility to OSM-mapped formal/core public-transport access points**. It does not attempt to represent Lagos mobility in its entirety. Danfo minibuses, okada motorcycles, keke tricycles and other informal/paratransit services are not comprehensively represented in the retained transit dataset.
 
-OpenStreetMap public-transport features were classified into bus, rail, ferry and other public-transport modes. Duplicate or co-located records were consolidated using spatial clustering. The final datasets contain 219 core bus/rail points and 348 multimodal points.
+## 2. Transit-data audit
 
-## 3. Walk-network analysis
+The retained transit layers were audited directly rather than interpreted from filenames alone. The final formal/core access foundation contains **219 bus/BRT/rail access points**. Explicit review found no comprehensive danfo, minibus, okada, keke or paratransit representation.
 
-A walk network was assembled from OpenStreetMap. The validated graph contained 129,815 nodes and 327,234 directed edges. Its largest weakly connected component contained 128,084 nodes, or 98.67% of the graph.
+## 3. Walking network
 
-Core transit points were snapped to the nearest network node. Edge length was converted to walking time using a constant speed of 4.8 km/h. Multi-source shortest-path analysis produced the minimum walking time from each node to the nearest core transit access point.
+The validated OpenStreetMap walking graph contains **129,815 nodes**. Its largest connected component contains 98.67% of graph nodes. Formal/core transit points were snapped to the network and assigned to graph components.
+
+Multi-source shortest-path analysis was used to calculate the minimum walking time from network nodes to the nearest mapped formal/core transit access point. A walking speed of **4.8 km/h** was used where edge travel-time values were not already available.
 
 ## 4. Population integration
 
-WorldPop 2020 cells were represented by their centre coordinates and connected to the nearest analysed network node where the connector distance did not exceed 500 m. Each cell inherited the node's walking time. Population outside the connector threshold or above 30 minutes was classified as underserved.
+WorldPop 2020 is used as the population foundation. Positive-population raster cells are represented by cell centroids and connected to the nearest walking-network node.
 
-## 5. Aggregation
+Population is never discarded because it fails to connect within a chosen threshold. Instead, population outside the connector is retained explicitly as `Network_Gap`. Population connected to a walking component without a mapped formal-transit point is retained separately as `Connected_But_No_Formal_Transit_Path`.
 
-Population was summarised within 5, 10, 15 and 30 minutes and by LGA. LGA planning-priority classes were assigned from the proportion and absolute number of underserved residents.
+## 5. Connector sensitivity
 
-## 6. Interpretation
+The original **500 m** population-to-network connector was reconstructed and retained as the reference scenario for comparability. It was tested against **250 m, 750 m and 1,000 m** alternatives.
 
-The analysis measures geographic access to mapped transit points. It does not evaluate timetables, fares, service quality, congestion, transfer time, personal safety or disability-specific walking conditions.
+The connector is treated as a modelling assumption between a population-cell centroid and the analysed walking graph, not as a universal acceptable walking-distance standard.
+
+## 6. Accessibility thresholds
+
+Accessibility is reported at four cumulative walking-time thresholds:
+
+- 15 minutes
+- 30 minutes
+- 45 minutes
+- 60 minutes
+
+The 30-minute threshold is retained as the principal reference for comparison with the original project, but interpretation is not restricted to a single threshold.
+
+## 7. LGA aggregation and service-gap typology
+
+Population accessibility is aggregated by LGA. The final interpretation separates:
+
+- structural walking-network gaps; and
+- time-based formal-transit gaps where a valid graph path exists but walking time exceeds the reference threshold.
+
+This distinction prevents network-connection failures from being conflated with long travel times.
+
+## 8. Robustness
+
+Statewide and LGA-level accessibility results were compared across the 250–1,000 m connector scenarios. The statewide 30-minute accessible share varies by less than one percentage point across the tested connectors, supporting retention of 500 m as the reference scenario while preserving the alternatives as sensitivity bounds.
+
+## 9. Interpretation
+
+The final 46.56% result refers to population that is more than 30 minutes from mapped formal/core transit or lies within a structural formal-network gap under the reference 500 m connector.
+
+It must **not** be interpreted as the share of Lagos residents without transport. Informal/paratransit mobility remains outside the comprehensive coverage of the retained dataset.
