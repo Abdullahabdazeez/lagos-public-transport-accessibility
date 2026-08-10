@@ -1,0 +1,9 @@
+Metric,Value,Percent,Unit
+Analysis population,11613843.999999998,100.0,people
+Within 15 minutes of mapped formal/core transit,2557743.350246872,22.023228056506287,people
+Within 30 minutes of mapped formal/core transit,6206326.219712599,53.439035514103686,people
+Within 45 minutes of mapped formal/core transit,8350755.804961861,71.90346111900472,people
+Within 60 minutes of mapped formal/core transit,9232087.717288893,79.49209337828968,people
+Beyond 30 minutes or structural formal-network gap,5407517.780287401,46.56096448589633,people
+Reference connector,500.0,,metres
+Core formal/core transit access points,219.0,,access points

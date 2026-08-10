@@ -1,0 +1,32 @@
+
+PROJECT FRAMING
+---------------
+Formal Public-Transport Accessibility and Spatial Service Gaps in Lagos, Nigeria
+
+REFERENCE SCENARIO
+------------------
+Population-to-network connector: 500 m
+
+STATEWIDE RESULTS
+-----------------
+Within 15 minutes : 2,557,743 people (22.02%)
+Within 30 minutes : 6,206,326 people (53.44%)
+Within 45 minutes : 8,350,756 people (71.90%)
+Within 60 minutes : 9,232,088 people (79.49%)
+
+Beyond 30 minutes or structural formal-network gap:
+5,407,518 people (46.56%)
+
+INTERPRETATION
+--------------
+The accessibility model represents walking access to OSM-mapped formal/core
+bus, BRT and rail access points.
+
+The 46.56% formal-access-gap result must NOT be interpreted as the
+share of Lagos residents without transport.
+
+Danfo, okada, keke and other informal/paratransit services are not
+comprehensively represented in the retained formal/core transit dataset.
+
+Connector sensitivity was evaluated at 250, 500, 750 and 1,000 m.
+The 500 m scenario is retained as the reference for comparability.

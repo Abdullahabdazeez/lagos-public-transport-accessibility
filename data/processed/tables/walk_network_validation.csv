@@ -1,9 +1,0 @@
-Metric,Value
-Network_Type,walk
-CRS,EPSG:32631
-Nodes,129815
-Directed_Edges,327234
-Weakly_Connected_Components,249
-Largest_Component_Nodes,128084
-Largest_Component_Percent,98.67
-Directed_Edge_Length_km,35338.82

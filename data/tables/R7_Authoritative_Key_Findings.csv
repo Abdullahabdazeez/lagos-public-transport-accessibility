@@ -1,0 +1,11 @@
+Finding_ID,Authoritative_Finding
+KF01,"2,557,743 people (22.02%) are within 15 minutes' walk of the mapped formal/core transit network."
+KF02,"6,206,326 people (53.44%) are within 30 minutes' walk of mapped formal/core transit access points."
+KF03,"8,350,756 people (71.90%) are within 45 minutes' walk of mapped formal/core transit."
+KF04,"9,232,088 people (79.49%) are within 60 minutes' walk of mapped formal/core transit."
+KF05,"5,407,518 people (46.56%) are more than 30 minutes from mapped formal/core transit or are within a structural walking-network gap under the 500 m reference connector."
+KF06,"The 30-minute statewide result is robust to the tested 250–1,000 m population-to-network connector scenarios."
+KF07,"The model measures formal/core public-transport accessibility only; danfo, okada, keke and other informal/paratransit systems are not comprehensively represented."
+KF08,Badagry has 100.00% formal-transit service gap under the 30-minute reference threshold.
+KF09,Epe has 99.99% formal-transit service gap under the 30-minute reference threshold.
+KF10,"Ikorodu has 74.98% formal-transit service gap, driven primarily by walking time rather than structural network disconnection."
