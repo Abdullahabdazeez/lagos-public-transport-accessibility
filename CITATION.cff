@@ -1,16 +1,18 @@
 cff-version: 1.2.0
 message: "If you use this project, please cite it using the metadata below."
-title: "Public Transport Accessibility and Spatial Equity in Lagos State"
+title: "Lagos Formal Public-Transport Accessibility and Service-Gap Analysis"
 type: software
 authors:
-  - family-names: "Ayomide"
-    given-names: "Abdullah Abdazeez"
+  - family-names: "Abdullah"
+    given-names: "Abdazeez Ayomide"
 repository-code: "https://github.com/Abdullahabdazeez/lagos-public-transport-accessibility"
 license: MIT
 keywords:
   - GIS
-  - public transport
+  - formal public transport
   - accessibility
-  - spatial equity
+  - service gaps
   - network analysis
   - Lagos
+  - urban planning
+  - geospatial analysis
