@@ -1,118 +1,122 @@
-<p align="center">
-  <img src="assets/project-cover.png" alt="Lagos Public Transport Accessibility and Spatial Equity" width="100%">
-</p>
+# Lagos Formal Public-Transport Accessibility and Service-Gap Analysis
 
-# Public Transport Accessibility and Spatial Equity in Lagos State
+## Overview
 
-Lagos has an extensive public transport system, yet proximity to bus and rail access remains uneven across the state. This project integrated OpenStreetMap pedestrian networks and transport features with WorldPop population data to measure walking-time access to core bus and rail points and identify communities where limited access overlaps with high population demand.
+How easily can Lagos residents reach the city's **mapped formal/core public-transport network** on foot?
 
-The analysis modelled the shortest walking route from **129,815 network nodes** to **219 core bus and rail access points**. Of the **11.61 million people** analysed, **6.21 million (53.44%)** were estimated to live within a 30-minute network-based walk, while **5.41 million (46.56%)** were classified as underserved because they exceeded the threshold or could not be connected to the analysed network within 500 metres. The results reveal a pronounced centre–periphery divide: Agege recorded **99.70%** accessibility, while Badagry, Epe, Ojo, Ibeju Lekki and Ikorodu formed the five very-high-priority LGAs.
+This project uses a validated OpenStreetMap walking network, WorldPop 2020 population data and **219 mapped formal/core bus, BRT and rail access points** to evaluate spatial accessibility across Lagos State.
 
-| Project detail | Information |
+The reconstructed analysis reports accessibility at **15, 30, 45 and 60 minutes** and explicitly tests the population-to-network connector at **250 m, 500 m, 750 m and 1,000 m**.
+
+> **Important scope:** this is a formal/core public-transport accessibility analysis. Danfo minibuses, okada motorcycles, keke tricycles and other informal/paratransit services are not comprehensively represented. The results therefore identify gaps in access to the mapped formal/core transit system, not the absence of transport generally.
+
+## Research Question
+
+**How accessible is Lagos's mapped formal/core public-transport network to residents, and where are the largest spatial service gaps?**
+
+## Study Area
+
+Lagos State, Nigeria — 20 Local Government Areas.
+
+## Analytical Foundation
+
+| Project detail | Final specification |
 |---|---|
-| **Study area** | Lagos State, Nigeria — 20 LGAs |
-| **Population baseline** | WorldPop 2020 |
-| **Transport focus** | Core bus and rail access points |
-| **Network** | OpenStreetMap walk network |
-| **Walking speed** | 4.8 km/h |
-| **Accessibility threshold** | 30 minutes |
-| **Maximum population-to-network connector** | 500 m |
-| **Projection** | WGS 84 / UTM Zone 31N (EPSG:32631) |
+| Population baseline | WorldPop 2020 |
+| Analysis population | 11,613,844 |
+| Formal/core transit access points | 219 |
+| Walking-network nodes | 129,815 |
+| Walking speed | 4.8 km/h |
+| Reference population-to-network connector | 500 m |
+| Connector sensitivity | 250 m, 500 m, 750 m, 1,000 m |
+| Accessibility thresholds | 15, 30, 45, 60 minutes |
+| Projection | WGS 84 / UTM Zone 31N (EPSG:32631) |
 
-## Key findings
+## Key Findings
 
-- **11,613,844 people** were included in the statewide accessibility assessment.
-- **11,030,270 people (94.98%)** were connected to the analysed pedestrian network.
-- **6,206,185 people (53.44%)** were within a 30-minute walk of a core bus or rail access point.
-- **5,407,659 people (46.56%)** were classified as underserved.
-- **Alimosho** had the largest absolute accessibility deficit, with approximately **967,347 underserved residents**.
-- **Ojo** followed with **794,543 underserved residents**, while **Ikorodu** recorded about **546,403**.
-- The five LGAs with the largest underserved populations accounted for **58.3%** of the LGA-assigned deficit.
-- Planning priorities comprised **5 very-high**, **2 high**, **8 moderate**, and **5 lower-priority LGAs**.
+- **2,557,743 people (22.02%)** are within 15 minutes' walk of mapped formal/core transit.
+- **6,206,326 people (53.44%)** are within 30 minutes.
+- **8,350,756 people (71.90%)** are within 45 minutes.
+- **9,232,088 people (79.49%)** are within 60 minutes.
+- **5,407,518 people (46.56%)** are more than 30 minutes from mapped formal/core transit or lie within a structural walking-network gap under the 500 m reference connector.
+- The statewide 30-minute result is robust across the tested 250–1,000 m connector scenarios.
+- Badagry records a **100.00% formal-transit service gap** under the 30-minute reference threshold; Epe records **99.99%**.
+- Ikorodu records a **74.98% formal-transit service gap**, driven primarily by walking time rather than structural network disconnection.
 
-## Project maps
+## What the 46.56% Result Means
 
-| 30-minute accessibility | Underserved population |
-|---|---|
-| ![30-minute accessibility](outputs/maps/01_30min_accessibility_by_lga.png) | ![Underserved population](outputs/maps/02_underserved_population_by_lga.png) |
+The **46.56%** figure does **not** mean that 46.56% of Lagos residents lack transport.
 
-<p align="center">
-  <img src="outputs/maps/03_public_transport_planning_priority.png" alt="Lagos public transport planning priority" width="95%">
-</p>
+It means that, under the 500 m reference connector, that population is either:
 
-## Accessibility inequality
+1. more than 30 minutes' walk from the mapped formal/core transit network; or
+2. within a structural walking-network gap relative to the mapped formal/core transit system.
 
-| LGA comparison | Absolute underserved population |
-|---|---|
-| ![LGA accessibility comparison](outputs/charts/01_lga_accessibility_comparison.png) | ![Underserved population ranking](outputs/charts/02_underserved_population_ranking.png) |
+This distinction is especially important in peripheral LGAs where informal mobility plays a major role.
 
-The highest accessibility levels were concentrated in the established metropolitan core. Agege, Lagos Mainland and Lagos Island recorded 30-minute accessibility rates of **99.70%**, **97.26%**, and **94.08%**, respectively. Peripheral LGAs showed substantially weaker access: Badagry recorded **0.00%**, Epe **0.01%**, Ojo **0.27%**, Ibeju Lekki **3.46%**, and Ikorodu **24.93%**.
+## Methodology
 
-## Analytical workflow
+1. Standardised Lagos State and 20 LGA boundaries in EPSG:32631.
+2. Audited the retained OSM transit layers and confirmed the formal/core modal scope.
+3. Reconstructed the 129,815-node pedestrian network and its connected components.
+4. Snapped the 219 formal/core transit access points to the network.
+5. Reconstructed WorldPop population-to-network connection.
+6. Tested **250 m, 500 m, 750 m and 1,000 m** connector scenarios.
+7. Retained population outside a connector threshold explicitly as `Network_Gap` rather than dropping it from the denominator.
+8. Separated population connected to walking components without mapped formal transit from ordinary time-based accessibility gaps.
+9. Calculated multi-source shortest walking times to the nearest mapped formal/core transit point.
+10. Reported accessibility at **15, 30, 45 and 60 minutes**.
+11. Aggregated results by LGA and separated structural from time-based formal-transit gaps.
+12. Tested statewide and LGA-level sensitivity before locking the final interpretation.
 
-1. Lagos State and 20 LGA boundaries were standardised in EPSG:32631.
-2. OpenStreetMap public-transport features were cleaned, classified and spatially deduplicated.
-3. A walkable street network was assembled and validated for topology and connectivity.
-4. Core bus and rail access points were snapped to the pedestrian network.
-5. Multi-source shortest-path analysis estimated walking time to the nearest core transit point.
-6. WorldPop cells were connected to nearby network nodes within a maximum 500 m connector.
-7. Population was summarised at 5-, 10-, 15-, and 30-minute thresholds.
-8. LGA-level accessibility, underserved population and planning-priority classes were calculated.
+## Connector Sensitivity
 
-The archived full network is not committed because it exceeds practical GitHub browser-upload limits. A compact sample is provided, while the included Python scripts document how to regenerate the network and reproduce the accessibility workflow from current OpenStreetMap data.
+The original 500 m population-to-network connector was reconstructed rather than accepted uncritically. The reference 30-minute result remained stable when the connector was varied from 250 m to 1,000 m, so **500 m is retained for comparability**, while the alternative connectors remain documented sensitivity scenarios.
 
-## Planning relevance
+The connector is a modelling device between population-cell centroids and the analysed walking graph; it is not presented as a universal walking-distance standard.
 
-The results identify where transport investment can reduce the largest spatial-access deficits. The peripheral pattern suggests that network extensions, feeder services and multimodal interchange improvements should be assessed alongside population growth in Badagry, Epe, Ojo, Ibeju Lekki and Ikorodu. Alimosho also requires attention because its moderate percentage deficit translates into the largest absolute number of underserved residents. These outputs are suitable for strategic screening and prioritisation, not parcel-level route or station design.
+## Peripheral Lagos
 
-## Repository contents
+Peripheral LGAs show some of the weakest access to the mapped formal/core network:
 
-```text
-.
-├── assets/                         # Project cover and social preview
-├── data/
-│   ├── processed/                  # Boundaries, stops, accessibility layers, raster and tables
-│   └── sample/                     # Compact walk-network sample
-├── docs/                           # Data, methodology, results and limitations
-├── notebooks/                      # Results-review notebook
-├── outputs/
-│   ├── maps/                       # Final accessibility and priority maps
-│   └── charts/                     # Comparison and ranking figures
-├── reports/                        # Concise project summary
-├── scripts/python/                 # Network, accessibility and validation scripts
-├── validation/                     # Automated repository checks
-├── CITATION.cff
-├── LICENSE
-├── README.md
-├── RELEASE_NOTES_v1.0.0.md
-├── requirements.txt
-└── project.json
-```
+- **Badagry:** 0.00% within 30 minutes; 100.00% formal-access gap.
+- **Epe:** 0.01% within 30 minutes; 99.99% formal-access gap.
+- **Ibeju-Lekki:** 3.46% within 30 minutes; 96.54% formal-access gap.
+- **Ikorodu:** 25.02% within 30 minutes; 74.98% formal-access gap.
 
-## Reproducibility
+These figures must be interpreted as **formal-transit service gaps**, not general transport deprivation, because informal/paratransit services are incompletely represented.
 
-1. Install the packages in `requirements.txt`.
-2. Review [`docs/DATA_SOURCES.md`](docs/DATA_SOURCES.md) and [`docs/METHODOLOGY.md`](docs/METHODOLOGY.md).
-3. Use `scripts/python/01_download_walk_network.py` to regenerate a current OSM walk network.
-4. Run `scripts/python/02_compute_network_accessibility.py` to derive node-level walk times.
-5. Use `scripts/python/03_summarize_population_accessibility.py` to aggregate WorldPop accessibility.
-6. Run `python scripts/python/reproduce_summary.py` to verify the supplied project results.
+## Planning Relevance
 
-OpenStreetMap changes continuously, so a newly downloaded network may not exactly match the archived 2026 project network. The supplied maps, tables and node-accessibility layer preserve the analysed results.
+The outputs can support:
+
+- formal transit network expansion;
+- first/last-mile planning;
+- pedestrian access improvements;
+- feeder-service design;
+- transit-oriented development screening;
+- prioritisation of peripheral growth areas; and
+- future integration of formal and informal mobility datasets.
+
+They should be combined with service frequency, affordability, reliability, safety, transfers and socioeconomic information before investment decisions are made.
 
 ## Limitations
 
-The analysis measures access to mapped bus and rail points, not service frequency, affordability, reliability, safety, vehicle capacity or transfer penalties. Walking speeds and the 500 m population-to-network connector are modelling assumptions. WorldPop estimates and OpenStreetMap completeness introduce additional uncertainty. See [`docs/LIMITATIONS.md`](docs/LIMITATIONS.md).
+The largest limitation is **modal representation**. The mapped transit foundation primarily represents formal/core bus, BRT and rail access points. Danfo, okada, keke and other informal/paratransit systems are not comprehensively represented.
+
+The model also assumes a constant walking speed and does not explicitly represent pedestrian-environment quality, crossing difficulty, personal mobility constraints, waiting time, fares, frequency, capacity, congestion, transfers or reliability. WorldPop is a modelled population surface rather than a household census.
+
+See [`docs/LIMITATIONS.md`](docs/LIMITATIONS.md) for the full limitation register.
+
+## Final Outputs
+
+The validated reconstruction includes final formal-transit accessibility maps, multi-threshold charts, connector-robustness results, LGA service-gap typology, final GIS data and the concluded technical report.
 
 ## Author
 
 **Abdullah Abdazeez Ayomide**  
-Geo-spatial Planner | GIS & Remote Sensing Analyst
+Geo-spatial Planner | GIS & Remote Sensing Analyst | Environmental & Urban Planning Researcher
 
-- [GitHub](https://github.com/Abdullahabdazeez)
-- [LinkedIn](https://ng.linkedin.com/in/abdazeez-abdullah-4b814719a)
-- [Email](mailto:abdazeezabdullah1@gmail.com)
+## Citation and Licence
 
-## Citation and licence
-
-Citation metadata is provided in [`CITATION.cff`](CITATION.cff). Code is released under the MIT License. External data remain subject to their providers' terms.
+Citation metadata is provided in [`CITATION.cff`](CITATION.cff). Code and original documentation are released under the repository licence. External datasets remain subject to their respective providers' terms.
