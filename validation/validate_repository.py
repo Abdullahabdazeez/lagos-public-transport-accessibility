@@ -15,9 +15,9 @@ REQUIRED_FILES = [
     "LICENSE",
     "project.json",
     "data/final/Lagos_LGA_Formal_Transit_Accessibility_FINAL.gpkg",
-    "data/tables/R7_Authoritative_Key_Findings.csv",
-    "data/tables/R7_Authoritative_Project_Statistics.csv",
-    "data/tables/R7_Final_Public_Interpretation.txt",
+    "data/tables/key_findings.csv",
+    "data/tables/project_statistics.csv",
+    "data/tables/public_interpretation.txt",
     "docs/DATA_SOURCES.md",
     "docs/FINAL_TECHNICAL_REPORT.md",
     "docs/LIMITATIONS.md",
@@ -44,7 +44,7 @@ def require_files() -> None:
 
 
 def read_statistics() -> dict[str, tuple[float, float | None]]:
-    path = ROOT / "data/tables/R7_Authoritative_Project_Statistics.csv"
+    path = ROOT / "data/tables/project_statistics.csv"
     rows: dict[str, tuple[float, float | None]] = {}
     with path.open("r", encoding="utf-8-sig", newline="") as handle:
         for row in csv.DictReader(handle):
