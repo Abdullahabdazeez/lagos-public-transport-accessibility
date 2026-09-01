@@ -14,6 +14,12 @@ The main result is that access is uneven. Under the reference model, **53.44% of
 
 > **Scope matters:** this project does not comprehensively map danfo, okada, keke or other informal/paratransit services. The results describe access to the mapped formal/core system, not the absence of transport generally.
 
+### Explore the result interactively
+
+[**Open the interactive Lagos formal-transit accessibility map in GIS Cloud →**](https://editor.giscloud.com/map/3258055)
+
+The interactive map is built from the project's final LGA-level GIS output. Click an LGA to inspect its analysed population, share within 30 minutes of mapped formal transit, remaining formal-access gap and service-gap type. The web layer is simplified for fast viewing; the repository and project archive retain the authoritative analysis data.
+
 ## Main findings
 
 | Walking-time threshold | Population within threshold | Share |
@@ -106,7 +112,7 @@ Python · OSMnx · NetworkX · GeoPandas · Pandas · WorldPop · OpenStreetMap 
 ## Author
 
 **Abdullah Abdazeez Ayomide**  
-Geospatial Planner · GIS & Remote Sensing Analyst · Urban & Environmental Planning Researcher
+Geospatial Planner · GIS & Remote Sensing Analyst
 
 [GitHub](https://github.com/Abdullahabdazeez) · [LinkedIn](https://ng.linkedin.com/in/abdazeez-abdullah-4b814719a)
 
