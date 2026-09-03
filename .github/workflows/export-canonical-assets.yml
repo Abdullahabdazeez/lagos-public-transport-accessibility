@@ -1,0 +1,25 @@
+name: Export canonical Lagos assets
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/export-canonical-assets.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build asset archive
+        run: |
+          zip -r lagos-canonical-source.zip README.md CITATION.cff LICENSE project.json RELEASE_NOTES_v2.0.0.md assets data docs reports validation 2>/dev/null || zip -r lagos-canonical-source.zip README.md CITATION.cff LICENSE project.json RELEASE_NOTES_v2.0.0.md assets data docs reports
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lagos-canonical-source
+          path: lagos-canonical-source.zip
+          retention-days: 1
